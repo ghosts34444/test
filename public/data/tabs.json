@@ -1,15 +1,15 @@
 {
     "LoliDimensions": {
         "name": "LoliDimensions",
-        "page_image": "/data/vanila/test.png",
-        "slot_image": "/data/vanila/slot_test.png",
+        "page_image": "data/LoliDimensions/image2.png",
+        "slot_image": "",
         "theme": {
-            "bg_primary": "#0a0514",
-            "bg_card": "#1a0f2e",
-            "accent": "#b44aff",
-            "accent_glow": "rgba(180, 74, 255, 0.4)",
-            "text_main": "#e8e0f0",
-            "text_sub": "#a898c0"
+  "bg_primary": "#0E1108",
+  "bg_card": "#1C200D",
+  "accent": "#373D17",
+  "accent_glow": "rgba(55, 61, 23, 0.4)",
+  "text_main": "#CEE7D3",
+  "text_sub": "#7A8B6E"
         },
         "items": [
             {
@@ -232,8 +232,8 @@
     },
     "Thaumcraft": {
         "name": "Thaumcraft",
-        "page_image": "",
-        "slot_image": "",
+        "page_image": "/data/thaumcraft/page_image.png",
+        "slot_image": "/data/thaumcraft/slot_image.png",
         "theme": {
             "bg_primary": "#0f0a14",
             "bg_card": "#1f1528",
@@ -461,9 +461,9 @@
             }
         ]
     },
-    "Applied Energistics 2": {
+    "AppliedEnergistics2": {
         "name": "Applied Energistics 2",
-        "page_image": "",
+        "page_image": "/data/AppliedEnergistics2/page_image.png",
         "slot_image": "",
         "theme": {
             "bg_primary": "#07090f",
@@ -618,7 +618,7 @@
     },
     "IndustrialCraft 2": {
         "name": "IndustrialCraft 2",
-        "page_image": "",
+        "page_image": "/data/IndustrialCraft2/page_image.png",
         "slot_image": "",
         "theme": {
             "bg_primary": "#0f0d08",
@@ -821,7 +821,7 @@
     },
     "Blood Magic": {
         "name": "Blood Magic",
-        "page_image": "",
+        "page_image": "/data/BloodMagic/page_image.png",
         "slot_image": "",
         "theme": {
             "bg_primary": "#140508",
@@ -1052,7 +1052,7 @@
     },
     "Botania": {
         "name": "Botania",
-        "page_image": "",
+        "page_image": "/data/Botania/page_image.png",
         "slot_image": "",
         "theme": {
             "bg_primary": "#08140a",
@@ -1421,7 +1421,7 @@
     },
     "LoliMagically": {
         "name": "LoliMagically",
-        "page_image": "",
+        "page_image": "/data/LoliMagically/page_image.png",
         "slot_image": "",
         "theme": {
             "bg_primary": "#081414",
@@ -1472,7 +1472,7 @@
     },
     "LoliEnergistics": {
         "name": "LoliEnergistics",
-        "page_image": "",
+        "page_image": "/data/LoliEnergistics/page_image.png",
         "slot_image": "",
         "theme": {
             "bg_primary": "#140f08",
@@ -1693,7 +1693,7 @@
             }
         ]
     },
-    "Draconic Evolution": {
+    "DraconicEvolution": {
         "name": "Draconic Evolution",
         "page_image": "",
         "slot_image": "",
@@ -1768,7 +1768,7 @@
             }
         ]
     },
-    "Обменник руд": {
+    "OreExchanger": {
         "name": "Обменник руд",
         "page_image": "",
         "slot_image": "",

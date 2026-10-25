@@ -1,44 +1,36 @@
 <template>
   <section v-if="tab" class="page-section">
-    
-    <!-- Фоновое изображение таба (НЕ липкое) -->
+
     <div class="page-header-bg">
-      <img :src="tab.page_image" class="page-bg-img" alt="bg">
+      <NuxtImg :src="tab.page_image || `/data/LoliDimensions/image2.png`" class="page-bg-img" alt="bg" sizes="sm:100vw md:100vw lg:100vw xl:100vw" quality="95" preload />
     </div>
 
-    <!-- Липкий блок: Заголовок + Поиск -->
     <div class="sticky-controls">
       <div class="page-title-block">
-        <img :src="tab.slot_image" class="slot-icon" alt="slot">
+        <NuxtImg :src="tab.slot_image || `/data/thaumcraft/slot_image.png`" class="slot-icon-1" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
         <h1 class="page-title">{{ tab.name }}</h1>
-        <img :src="tab.slot_image" class="slot-icon" alt="slot">
+        <NuxtImg :src="tab.slot_image || `/data/thaumcraft/slot_image.png`" class="slot-icon-2" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
       </div>
 
-      <!-- Поиск с кнопкой очистки -->
       <div class="search-wrapper">
         <div class="search-input-container">
-          <input 
-            v-model="search" 
-            type="text" 
-            placeholder="Поиск по галактике..." 
-            class="search-input"
-          >
+          <input v-model="search" type="text" placeholder="Поиск..." class="search-input">
           <button v-if="search" @click="search = ''" class="search-clear" aria-label="Очистить поиск">X</button>
         </div>
       </div>
     </div>
 
-    <!-- Список обмена -->
     <div class="trade-list">
       <TransitionGroup name="list">
-        <div v-for="items in FilterArrayItems" :key="items.id || items.name" class="trade-card">
+        <div v-for="items in FilterArrayItems" :key="items.name" class="trade-card">
           <div class="trade-item trade-left">
             <span class="item-name">{{ items.name }}</span>
           </div>
 
           <div class="trade-arrow">
             <svg viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-svg">
-              <path d="M0 10H30M30 10L22 2M30 10L22 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M0 10H30M30 10L22 2M30 10L22 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
               <circle cx="10" cy="10" r="2" fill="currentColor" class="arrow-particle" />
             </svg>
           </div>
@@ -61,7 +53,7 @@
   width: 80%;
   margin: 0 auto;
   position: relative;
-  
+
   /* Переменные из JSON */
   --c-bg: v-bind('tab.theme.bg_primary');
   --c-card: v-bind('tab.theme.bg_card');
@@ -96,33 +88,34 @@
 
 .page-bg-img {
   width: 100%;
-  max-height: 220px;
+  max-height: 300px;
   object-fit: cover;
   border-radius: 20px;
-  opacity: 0.25;
+  opacity: 1;
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
 }
 
 /* ЛИПКИЙ БЛОК */
 .sticky-controls {
-  position: -webkit-sticky; /* Для Safari */
+  position: -webkit-sticky;
+  /* Для Safari */
   position: sticky;
   top: 20px;
   z-index: 20;
-  
+
   /* Обязательно добавьте эти свойства: */
-  background: rgba(10, 17, 27, 0.151);
+  background: rgba(11, 18, 27, 0.151);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  
+
   border-radius: 20px;
   padding: 20px 24px 24px;
   margin-bottom: 28px;
-  
+
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-  
+
   /* Важно для корректной работы sticky */
   width: 100%;
   box-sizing: border-box;
@@ -132,7 +125,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -145,11 +138,17 @@
   color: var(--c-accent);
 }
 
-.slot-icon {
-  width: 28px;
-  height: 28px;
+.slot-icon-1,
+.slot-icon-2 {
+  width: 48px;
+  height: 48px;
   opacity: 0.9;
   image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.slot-icon-2 {
+  transform: scaleX(-1);
 }
 
 /* Поиск */
@@ -159,6 +158,8 @@
 }
 
 .search-input-container {
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 100%;
   max-width: 500px;
@@ -166,7 +167,7 @@
 
 .search-input {
   width: 100%;
-  padding: 12px 40px 12px 18px; /* Место справа для кнопки очистки */
+  padding: 12px 40px 12px 18px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -189,7 +190,7 @@
 /* Кнопка очистки поиска */
 .search-clear {
   position: absolute;
-  right: -50px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
@@ -257,8 +258,13 @@
   z-index: 1;
 }
 
-.trade-left { text-align: left; }
-.trade-right { text-align: right; }
+.trade-left {
+  text-align: left;
+}
+
+.trade-right {
+  text-align: right;
+}
 
 .item-name {
   font-size: 1rem;
@@ -272,7 +278,7 @@
 .price-value {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--c-accent);
+  color: var(--c-text);
   background: rgba(0, 0, 0, 0.2);
   padding: 6px 14px;
   border-radius: 8px;
@@ -306,15 +312,27 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.4; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 /* Анимации списка */
-.list-enter-active, .list-leave-active {
+.list-enter-active,
+.list-leave-active {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.list-enter-from, .list-leave-to {
+
+.list-enter-from,
+.list-leave-to {
   opacity: 0;
   transform: translateY(10px);
 }
@@ -331,16 +349,31 @@
 
 /* Адаптив для планшетов */
 @media (max-width: 900px) {
-  .content { padding: 80px 20px 32px; }
-  .sticky-controls { padding: 16px 20px 20px; }
-  .trade-card { padding: 16px 20px; }
+  .content {
+    padding: 80px 20px 32px;
+  }
+
+  .sticky-controls {
+    padding: 16px 20px 20px;
+  }
+
+  .trade-card {
+    padding: 16px 20px;
+  }
 }
 
 /* Адаптив для мобильных */
 @media (max-width: 600px) {
-  .page-title { font-size: 1.1rem; letter-spacing: 1px; }
-  .slot-icon { width: 24px; height: 24px; }
-  
+  .page-title {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  .slot-icon {
+    width: 24px;
+    height: 24px;
+  }
+
   .trade-card {
     flex-direction: column;
     gap: 12px;
@@ -348,7 +381,8 @@
     padding: 20px 16px;
   }
 
-  .trade-left, .trade-right {
+  .trade-left,
+  .trade-right {
     text-align: center;
     flex: none;
     width: 100%;
@@ -358,7 +392,7 @@
     transform: rotate(90deg);
     flex: 0 0 24px;
   }
-  
+
   .sticky-controls {
     top: 10px;
     padding: 16px;
@@ -374,8 +408,6 @@ const route = useRoute()
 const { data: tabsInfo } = UseTabs()
 
 const tabRouter = computed(() => String(route.params.tabs || ''))
-console.log(tabRouter.value, 1)
-provide("tabRouter", tabRouter)
 const tab = computed(() => tabsInfo.value?.[tabRouter.value])
 
 const search = ref('')
@@ -383,12 +415,17 @@ const search = ref('')
 const FilterArrayItems = computed(() => {
   const item = tab.value?.items
   if (!item) return []
-  
+
   if (!search.value.trim()) {
     return item
   }
 
   const query = search.value.toLowerCase().trim()
   return item.filter(item => item.name.toLowerCase().includes(query)) // includes лучше, чем startsWith для поиска
+})
+
+definePageMeta({
+  keepalive: true,
+  pageKey: 'tabs-shared-key' 
 })
 </script>

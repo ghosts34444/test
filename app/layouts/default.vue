@@ -55,7 +55,7 @@
   position: fixed;
   background: rgba(10, 14, 24, 0.7);
   backdrop-filter: blur(16px);
-  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  border-right: 3px solid rgba(255, 255, 255, 0.04);
   display: flex;
   flex-direction: column;
   padding: 24px 16px;
