@@ -1,15 +1,15 @@
 {
     "LoliDimensions": {
         "name": "LoliDimensions",
-        "page_image": "data/LoliDimensions/image2.png",
-        "slot_image": "",
+        "page_image": "/data/LoliDimensions/page_image.png",
+        "slot_image": "/data/LoliDimensions/slot_image.png",
         "theme": {
-  "bg_primary": "#0E1108",
-  "bg_card": "#1C200D",
-  "accent": "#373D17",
-  "accent_glow": "rgba(55, 61, 23, 0.4)",
-  "text_main": "#CEE7D3",
-  "text_sub": "#7A8B6E"
+            "bg_primary": "#080a07",
+            "bg_card": "#11150e",
+            "accent": "#4a5e3a",
+            "accent_glow": "#6b8050",
+            "text_main": "#b8c4a8",
+            "text_sub": "#4a5540"
         },
         "items": [
             {
@@ -235,243 +235,299 @@
         "page_image": "/data/thaumcraft/page_image.png",
         "slot_image": "/data/thaumcraft/slot_image.png",
         "theme": {
-            "bg_primary": "#0f0a14",
-            "bg_card": "#1f1528",
-            "accent": "#c978ff",
-            "accent_glow": "rgba(201, 120, 255, 0.35)",
-            "text_main": "#f0e8f5",
-            "text_sub": "#b8a8c8"
+            "bg_primary": "#0a0614",
+            "bg_card": "#150d26",
+            "accent": "#9b59b6",
+            "accent_glow": "#bb77d6",
+            "text_main": "#d8cce8",
+            "text_sub": "#6e5a82"
         },
         "items": [
             {
-                "name": "Оловянный слиток 4Х",
+                "name": "Слиток Таум-металла 1Х",
                 "price": "Железный слиток 3Х"
             },
             {
-                "name": "Медный слиток 4Х",
+                "name": "Слиток Пустотного Металла 1X",
                 "price": "Железный слиток 3Х"
             },
             {
-                "name": "Алмаз  1Х",
-                "price": "Железный слиток 9Х"
-            },
-            {
-                "name": "Золотой слиток 1Х",
-                "price": "Железный слиток 2Х"
-            },
-            {
-                "name": "Краснокаменная пыль 16Х",
+                "name": "Слиток мрачного металла 1Х",
                 "price": "Железный слиток 3Х"
             },
             {
-                "name": "Уголь 4Х",
-                "price": "Железный слиток 1Х"
-            },
-            {
-                "name": "Лазурит 8Х ",
-                "price": "Железный слиток 3Х"
-            },
-            {
-                "name": "Обсидиан 4Х",
-                "price": "Железный слиток 1Х"
-            },
-            {
-                "name": "Изумруд 1Х",
-                "price": "Железный слиток 16Х"
-            },
-            {
-                "name": "Адский кварц 4Х",
-                "price": "Железный слиток 1Х"
-            },
-            {
-                "name": "Светопыль 5Х",
-                "price": "Железный слиток 1Х"
-            },
-            {
-                "name": "Серебряный слиток 1Х",
-                "price": "Железный слиток 2Х"
-            },
-            {
-                "name": "Свинцовый слиток 2Х",
-                "price": "Железный слиток 3Х"
-            },
-            {
-                "name": "Алюминиевый слиток 2Х",
-                "price": "Железный слиток 3Х"
-            },
-            {
-                "name": "Никелевый слиток 1Х",
-                "price": "Железный слиток 3Х"
-            },
-            {
-                "name": "Радвириум 1Х",
+                "name": "Тигель 1X",
                 "price": "Железный слиток 12Х"
             },
             {
-                "name": "Себастьянитовый слиток 1Х",
-                "price": "Железный слиток 16Х"
+                "name": "Банка 1X",
+                "price": "Железный слиток 2Х"
             },
             {
-                "name": "Скайфариевый слиток 1Х",
-                "price": "Железный слиток 16Х"
+                "name": "Кристаллы Измерений(Ада/Края) 1X",
+                "price": "Слиток таум-металла 2Х"
             },
             {
-                "name": "Мифриловый слиток 1Х",
-                "price": "Железный слиток 16Х"
+                "name": "Осколки Греха, Лени, и тд. 1X",
+                "price": "Слиток таум-металла 2Х"
             },
             {
-                "name": "Платиновый слиток 1Х",
-                "price": "Железный слиток 16Х"
+                "name": "Алюментум 1X",
+                "price": "Железный слиток 2Х"
             },
             {
-                "name": "Урановый слиток 1Х",
-                "price": "Железный слиток 16Х"
+                "name": "Нитор 1X",
+                "price": "Железный слиток 2Х"
             },
             {
-                "name": "Нить 1Х",
-                "price": "Железный слиток 1Х"
+                "name": "Ртуть 4X",
+                "price": "Желеный слиток 3Х"
             },
             {
-                "name": "Порох 1Х",
+                "name": "Семя Пустоты 64X",
                 "price": "Железный слиток 3Х"
             },
             {
-                "name": "Сгусток слизи 1Х",
+                "name": "Кристаллы Thaumcraft 6X",
                 "price": "Железный слиток 3Х"
             },
             {
-                "name": "Кость 64Х",
+                "name": "Фрагмент Знаний X8",
+                "price": "Желеный слиток 4Х"
+            },
+            {
+                "name": "Эфирный Цветок 1Х",
                 "price": "Железный слиток 3Х"
             },
             {
-                "name": "Перо 8Х",
-                "price": "Железный слиток 3Х"
-            },
-            {
-                "name": "Обработанная кожа 8Х",
-                "price": " Железный слиток 3Х"
-            },
-            {
-                "name": "Живое пламя 1Х",
-                "price": "Железный слиток 3Х"
-            },
-            {
-                "name": "Астральная жемчужина 1Х",
+                "name": "Обсидиановый Тотем 1Х",
                 "price": "Железный слиток 12Х"
             },
             {
-                "name": "Снег 8Х",
-                "price": "Железный слиток 1Х"
+                "name": "Усиленное Стекло 1Х",
+                "price": "Слиток таум-металла 4Х"
             },
             {
-                "name": "Лёд 4Х",
-                "price": "Железный слиток 1Х"
+                "name": "Блок Магического Жира 1Х",
+                "price": "Слиток таум-металла 4Х"
             },
             {
-                "name": "Шерсть 1Х",
-                "price": "Железный слиток 2Х"
+                "name": "Магический Камень 8Х",
+                "price": "Слиток таум-металла 3Х"
             },
             {
-                "name": "Красители (любые ванильные) 1Х",
-                "price": "Железный слиток 2Х"
+                "name": "Янтарный блок 1X",
+                "price": "Железный блок 1Х"
             },
             {
-                "name": "Глина 1Х",
-                "price": "Железный слиток 8Х"
+                "name": "Магический Пьедестал 2X",
+                "price": "Слиток таум-металла 3Х"
             },
             {
-                "name": "Иссохшая плоть 32Х",
-                "price": "Железный слиток 3Х"
+                "name": "Руническая Матрица 1X",
+                "price": "Слиток таум-металла 4Х"
             },
             {
-                "name": "Адская звезда 1Х",
-                "price": "Череп скелета‑иссушителя 4Х"
+                "name": "Узел-Преобразователь 1X",
+                "price": "Слиток таум-металла 3Х"
             },
             {
-                "name": "Череп Скелета‑иссушителя 1Х",
-                "price": "Алмазный блок 1Х"
+                "name": "Улучшенный Узел-Стабилизатор 1X",
+                "price": "Слиток таум-металла 5Х"
             },
             {
-                "name": "Слеза похитителя душ 1Х",
-                "price": "Железный слиток 14Х"
+                "name": "Алхимическая Печь 1Х",
+                "price": "Слиток таум-металла 3Х"
             },
             {
-                "name": "Адский нарост 1Х",
-                "price": "Железный слиток 8Х"
+                "name": "Перегонный Куб 1X",
+                "price": "Слиток таум-металла 2Х"
             },
             {
-                "name": "Пергамент/Бумага 1Х",
+                "name": "Кристаллизатор Эссенции 1X",
+                "price": "Слиток таум-металла 3Х"
+            },
+            {
+                "name": "Труба Для Эссенции 8X",
                 "price": "Железный слиток 4Х"
             },
             {
-                "name": "Сахарный тростник 1Х",
-                "price": "Железный слиток 8Х"
+                "name": "Светильник Роста 1X",
+                "price": "Слиток таум-металла 6Х"
             },
             {
-                "name": "Зелье (любые) 1Х",
-                "price": "Алмаз 4Х"
+                "name": "Вис-Канал 1X",
+                "price": "Слиток таум-металла 3Х"
             },
             {
-                "name": "Яйца(Куриное и Страусиное) 1Х",
+                "name": "Вис-Заряжатель 1X",
+                "price": "Слиток таум-металла 5Х"
+            },
+            {
+                "name": "Магические Меха 1X",
+                "price": "Слиток таум-металла 3Х"
+            },
+            {
+                "name": "Золотой Наконечник 1X",
                 "price": "Железный слиток 1Х"
             },
             {
-                "name": "Адский камень 10Х",
-                "price": "Железный слиток 1Х"
+                "name": "Заряженный Таум-Наконечник 1X",
+                "price": "Слиток таум-металла 4Х"
             },
             {
-                "name": "Светосталь 1Х",
-                "price": "Железный слиток 12Х"
-            },
-            {
-                "name": "Небесная пыль 1Х",
-                "price": "Железный слиток 24Х"
-            },
-            {
-                "name": "Светящийся плод 1Х",
-                "price": "Железный слиток 8Х"
-            },
-            {
-                "name": "Селитра 2Х",
-                "price": "Железный слиток 1Х"
-            },
-            {
-                "name": "Серная пыль 1Х",
-                "price": "Железный слиток 1Х"
-            },
-            {
-                "name": "Священная шерсть 1Х",
-                "price": "Железный слиток 12Х"
-            },
-            {
-                "name": "Осколок бархана 1Х",
-                "price": "Железный слиток 6Х"
-            },
-            {
-                "name": "Осколок вечной мерзлоты 1Х",
-                "price": "Железный слиток 5Х"
-            },
-            {
-                "name": "Темнейший пепел 1Х",
+                "name": "Зачарованная Ткань 1X",
                 "price": "Железный слиток 3Х"
             },
             {
-                "name": "Стекло 1Х",
-                "price": "Железный слиток 1Х"
+                "name": "Фильтр 1X",
+                "price": "Железный слиток 4Х"
+            },
+            {
+                "name": "Зеркало 1X",
+                "price": "Железный слиток 5Х"
+            },
+            {
+                "name": "Заражённая Слизь 1X",
+                "price": "Слиток таум-металла 1Х"
+            },
+            {
+                "name": "Заражённое Щупальце 1X",
+                "price": "Слиток таум-металла 1Х"
+            },
+            {
+                "name": "Salis Mundus 1Х",
+                "price": "Слиток таум-металла 2Х"
+            },
+            {
+                "name": "Сингулярный Амулет 1X",
+                "price": "Слиток таум-металла 6Х"
+            },
+            {
+                "name": "Сбалансированный Кристалл 1Х",
+                "price": "Слиток таум-металла 3Х"
+            },
+            {
+                "name": "Чернильница С Пером 1X",
+                "price": "Железный слиток 4Х"
+            },
+            {
+                "name": "Таумономикон 1X",
+                "price": "Железный блок 1Х"
+            },
+            {
+                "name": "Таумометр 1X",
+                "price": "Слиток таум-металла 3Х"
+            },
+            {
+                "name": "Очки Откровения 1X",
+                "price": "Слиток таум-металла 5Х"
+            },
+            {
+                "name": "Сапоги Путешественника 1X",
+                "price": "Слиток таум-металла 10Х"
+            },
+            {
+                "name": "Меч Бури 1X",
+                "price": "Слиток таум-металла 8Х"
+            },
+            {
+                "name": "Лопата Землероя 1X",
+                "price": "Слиток таум-металла 6Х"
+            },
+            {
+                "name": "Топор Потока 1X",
+                "price": "Слиток таум-металла 6Х"
+            },
+            {
+                "name": "Кирка Огня 1X",
+                "price": "Слиток таум-металла 8Х"
+            },
+            {
+                "name": "Мотыга Роста 1X",
+                "price": "Слиток таум-металла 6Х"
+            },
+            {
+                "name": "Мантия Тауматурга 1X",
+                "price": "Слиток таум-металла 4Х"
+            },
+            {
+                "name": "Шаровары Тауматурга 1X",
+                "price": "Слиток таум-металла 3Х"
+            },
+            {
+                "name": "Сапоги Тауматурга 1X",
+                "price": "Слиток таум-металла 2Х"
+            },
+            {
+                "name": "Очищающая Соль 1X",
+                "price": "Слиток таум-металла 2Х"
+            },
+            {
+                "name": "Сингулярная Жемчужина 1X",
+                "price": "Блок таум-металла 8Х"
+            },
+            {
+                "name": "Око древности 1Х",
+                "price": "Слиток таум-металла 10Х"
+            },
+            {
+                "name": "Багровые Ритуалы 1X",
+                "price": "Блок таум-металла 1Х"
+            },
+            {
+                "name": "Лечащее Мыло 1X",
+                "price": "Слиток таум-металла 4Х"
+            },
+            {
+                "name": "Кинетический Притяжатель 1X",
+                "price": "Слиток таум-металла 8Х"
+            },
+            {
+                "name": "Материальный Притяжатель 1X",
+                "price": "Слиток таум-металла 8Х"
+            },
+            {
+                "name": "Осмотический Стол Зачарований 1Х",
+                "price": "Блок таум-металла 16Х"
+            },
+            {
+                "name": "Ихор 1X",
+                "price": "Слиток таум-металла 16Х"
+            },
+            {
+                "name": "Поставщик Наполнения 1X",
+                "price": "Слиток таум-металла 12Х"
+            },
+            {
+                "name": "Магический Сборщик 1X",
+                "price": "Слиток таум-металла 10Х"
+            },
+            {
+                "name": "Высекатель Знаний 1X",
+                "price": "Слиток таум-металла 8Х"
+            },
+            {
+                "name": "Мэ Магический Терминал Изготовления 1X",
+                "price": "Слиток таум-металла 6Х"
+            },
+            {
+                "name": "Мэ Интерфейс Вис-Реле 1X",
+                "price": "Слиток таум-металла 3Х"
             }
         ]
     },
     "AppliedEnergistics2": {
         "name": "Applied Energistics 2",
         "page_image": "/data/AppliedEnergistics2/page_image.png",
-        "slot_image": "",
+        "slot_image": "/data/AppliedEnergistics2/slot_image.png",
         "theme": {
-            "bg_primary": "#07090f",
-            "bg_card": "#111525",
-            "accent": "#00e5ff",
-            "accent_glow": "rgba(0, 229, 255, 0.4)",
+            "bg_primary": "#011F29",
+            "bg_card": "#151A2E",
+            "accent": "#5B8DEF",
+            "accent_glow": "#7DB4FF",
             "text_main": "#e2e8f0",
-            "text_sub": "#94a3b8"
+            "text_sub": "#7a8ba8"
         },
         "items": [
             {
@@ -619,14 +675,14 @@
     "IndustrialCraft 2": {
         "name": "IndustrialCraft 2",
         "page_image": "/data/IndustrialCraft2/page_image.png",
-        "slot_image": "",
+        "slot_image": "/data/IndustrialCraft2/slot_image.png",
         "theme": {
-            "bg_primary": "#0f0d08",
-            "bg_card": "#1f1a12",
-            "accent": "#ff9500",
-            "accent_glow": "rgba(255, 149, 0, 0.35)",
-            "text_main": "#f0ece0",
-            "text_sub": "#b8b0a0"
+            "bg_primary": "#0a1218",
+            "bg_card": "#141e28",
+            "accent": "#4ecdc4",
+            "accent_glow": "#7ff5ed",
+            "text_main": "#d8e8f0",
+            "text_sub": "#6b8a96"
         },
         "items": [
             {
@@ -822,12 +878,12 @@
     "Blood Magic": {
         "name": "Blood Magic",
         "page_image": "/data/BloodMagic/page_image.png",
-        "slot_image": "",
+        "slot_image": "/data/BloodMagic/slot_image.png",
         "theme": {
             "bg_primary": "#140508",
             "bg_card": "#2a0f15",
             "accent": "#ff2040",
-            "accent_glow": "rgba(255, 32, 64, 0.4)",
+            "accent_glow": "#FF2040",
             "text_main": "#f0e0e2",
             "text_sub": "#c09898"
         },
@@ -1053,14 +1109,14 @@
     "Botania": {
         "name": "Botania",
         "page_image": "/data/Botania/page_image.png",
-        "slot_image": "",
+        "slot_image": "/data/Botania/slot_image.png",
         "theme": {
-            "bg_primary": "#08140a",
-            "bg_card": "#122515",
-            "accent": "#40ff80",
-            "accent_glow": "rgba(64, 255, 128, 0.35)",
-            "text_main": "#e0f0e2",
-            "text_sub": "#98b8a0"
+            "bg_primary": "#0a1a0f",
+            "bg_card": "#152a1a",
+            "accent": "#ffd54f",
+            "accent_glow": "#ffe082",
+            "text_main": "#e8f5e9",
+            "text_sub": "#7a9e82"
         },
         "items": [
             {
@@ -1207,13 +1263,13 @@
     },
     "Avaritia": {
         "name": "Avaritia",
-        "page_image": "",
-        "slot_image": "",
+        "page_image": "/data/Avaritia/page_image.png",
+        "slot_image": "/data/Avaritia/slot_image.png",
         "theme": {
             "bg_primary": "#0a0505",
             "bg_card": "#1a0a0a",
             "accent": "#ff4040",
-            "accent_glow": "rgba(255, 64, 64, 0.45)",
+            "accent_glow": "#FF4040",
             "text_main": "#f0e0e0",
             "text_sub": "#c0a0a0"
         },
@@ -1234,15 +1290,15 @@
     },
     "Forestry": {
         "name": "Forestry",
-        "page_image": "",
-        "slot_image": "",
+        "page_image": "/data/Forestry/page_image.png",
+        "slot_image": "/data/Forestry/slot_image.png",
         "theme": {
-            "bg_primary": "#0f1208",
-            "bg_card": "#1f2512",
-            "accent": "#d4ff40",
-            "accent_glow": "rgba(212, 255, 64, 0.35)",
-            "text_main": "#f0f5e0",
-            "text_sub": "#b8c8a0"
+            "bg_primary": "#1a1208",
+            "bg_card": "#2e1f12",
+            "accent": "#f5a623",
+            "accent_glow": "#ffb347",
+            "text_main": "#f5e6c8",
+            "text_sub": "#b89868"
         },
         "items": [
             {
@@ -1422,14 +1478,14 @@
     "LoliMagically": {
         "name": "LoliMagically",
         "page_image": "/data/LoliMagically/page_image.png",
-        "slot_image": "",
+        "slot_image": "/data/LoliMagically/slot_image.png",
         "theme": {
-            "bg_primary": "#081414",
-            "bg_card": "#122525",
-            "accent": "#00ffc8",
-            "accent_glow": "rgba(0, 255, 200, 0.35)",
-            "text_main": "#e0f5f0",
-            "text_sub": "#98c0b8"
+            "bg_primary": "#0d0a1f",
+            "bg_card": "#1e1640",
+            "accent": "#d940ff",
+            "accent_glow": "#ff66ff",
+            "text_main": "#e8e0ff",
+            "text_sub": "#8a7fb0"
         },
         "items": [
             {
@@ -1473,14 +1529,14 @@
     "LoliEnergistics": {
         "name": "LoliEnergistics",
         "page_image": "/data/LoliEnergistics/page_image.png",
-        "slot_image": "",
+        "slot_image": "/data/LoliEnergistics/slot_image.png",
         "theme": {
-            "bg_primary": "#140f08",
-            "bg_card": "#251f12",
-            "accent": "#ff8040",
-            "accent_glow": "rgba(255, 128, 64, 0.4)",
-            "text_main": "#f5ece0",
-            "text_sub": "#c0b0a0"
+            "bg_primary": "#15110c",
+            "bg_card": "#241c13",
+            "accent": "#e89b45",
+            "accent_glow": "#ffb866",
+            "text_main": "#f2e8d5",
+            "text_sub": "#96866e"
         },
         "items": [
             {
@@ -1695,15 +1751,15 @@
     },
     "DraconicEvolution": {
         "name": "Draconic Evolution",
-        "page_image": "",
-        "slot_image": "",
+        "page_image": "/data/DraconicEvolution/page_image.png",
+        "slot_image": "/data/DraconicEvolution/slot_image.png",
         "theme": {
-            "bg_primary": "#100514",
-            "bg_card": "#200f28",
-            "accent": "#ff40ff",
-            "accent_glow": "rgba(255, 64, 255, 0.4)",
-            "text_main": "#f5e0f5",
-            "text_sub": "#c0a0c0"
+            "bg_primary": "#0a0514",
+            "bg_card": "#160a24",
+            "accent": "#d946ef",
+            "accent_glow": "#f0abfc",
+            "text_main": "#f0e6ff",
+            "text_sub": "#7a5a8a"
         },
         "items": [
             {
@@ -1770,8 +1826,8 @@
     },
     "OreExchanger": {
         "name": "Обменник руд",
-        "page_image": "",
-        "slot_image": "",
+        "page_image": "/data/OreExchanger/page_image.png",
+        "slot_image": "/data/OreExchanger/slot_image.png",
         "theme": {
             "bg_primary": "#0f0d0a",
             "bg_card": "#1f1a15",

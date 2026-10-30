@@ -2,14 +2,14 @@
   <section v-if="tab" class="page-section">
 
     <div class="page-header-bg">
-      <NuxtImg :src="tab.page_image || `/data/LoliDimensions/image2.png`" class="page-bg-img" alt="bg" sizes="sm:100vw md:100vw lg:100vw xl:100vw" quality="95" preload />
+      <NuxtImg :src="tab.page_image || `/data/undefined_tab_image.png`" class="page-bg-img" alt="bg" sizes="sm:100vw md:100vw lg:100vw xl:100vw" quality="95" preload />
     </div>
 
     <div class="sticky-controls">
       <div class="page-title-block">
-        <NuxtImg :src="tab.slot_image || `/data/thaumcraft/slot_image.png`" class="slot-icon-1" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
+        <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-1" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
         <h1 class="page-title">{{ tab.name }}</h1>
-        <NuxtImg :src="tab.slot_image || `/data/thaumcraft/slot_image.png`" class="slot-icon-2" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
+        <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-2" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
       </div>
 
       <div class="search-wrapper">
@@ -55,12 +55,12 @@
   position: relative;
 
   /* Переменные из JSON */
-  --c-bg: v-bind('tab.theme.bg_primary');
-  --c-card: v-bind('tab.theme.bg_card');
-  --c-accent: v-bind('tab.theme.accent');
-  --c-glow: v-bind('tab.theme.accent_glow');
-  --c-text: v-bind('tab.theme.text_main');
-  --c-sub: v-bind('tab.theme.text_sub');
+  --c-bg: v-bind('tab.theme.bg_primary || "#fff"');
+  --c-card: v-bind('tab.theme.bg_card || "#fff"');
+  --c-accent: v-bind('tab.theme.accent || "#fff"');
+  --c-glow: v-bind('tab.theme.accent_glow || "#fff"');
+  --c-text: v-bind('tab.theme.text_main || "#fff"');
+  --c-sub: v-bind('tab.theme.text_sub || "#fff"');
 
   color: var(--c-text);
 }
@@ -72,10 +72,11 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 70%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
-  box-shadow: 0 0 60px 15px var(--c-glow);
+  width: 97%;
+  height: 3px;
+  border-radius: 0;
+  background: var(--c-accent);
+  box-shadow: 0 0 60px 20px var(--c-glow);
   opacity: 0.4;
   pointer-events: none;
   z-index: 0;
@@ -87,6 +88,7 @@
 }
 
 .page-bg-img {
+  z-index: 1;
   width: 100%;
   max-height: 300px;
   object-fit: cover;
@@ -359,6 +361,10 @@
 
   .trade-card {
     padding: 16px 20px;
+  }
+
+  .page-section {
+    width: 90%;
   }
 }
 
