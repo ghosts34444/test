@@ -1,5 +1,5 @@
 export const UseTabs = () => {
-    return useFetch('https://dark-galaxy-table-price.vercel.app/data/tabs.json', {
+    return useFetch('http://localhost:3000/data/tabs.json', {
         key: 'tabs'
     })
 }

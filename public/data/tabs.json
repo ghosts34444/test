@@ -13,7 +13,9 @@
         },
         "items": [
             {
+                "name_image": "/data/test.png",
                 "name": "Оловянный слиток 4Х",
+                "price_image": "/data/test.png",
                 "price": "Железный слиток 3Х"
             },
             {

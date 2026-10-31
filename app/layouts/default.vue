@@ -13,6 +13,7 @@
         <div class="sidebar_inner">
           <nav class="sidebar_nav">
             <NuxtLink to="/" class="sidebar_link" @click="activate_mm">Главная</NuxtLink>
+            <NuxtLink to="/all" class="sidebar_link">Все разделы</NuxtLink>
             <NuxtLink 
               v-for="[key, tabs] in tabs" 
               :key="key" 
@@ -63,6 +64,7 @@
       
       <nav class="sidebar_nav">
         <NuxtLink to="/" class="sidebar_link">Главная</NuxtLink>
+        <NuxtLink to="/all" class="sidebar_link">Все разделы</NuxtLink>
         <NuxtLink v-for="[key, tabs] in tabs" :key="key" :to="`/${key}`" class="sidebar_link">
           {{ tabs.name }}
         </NuxtLink>
@@ -212,7 +214,7 @@
 .mm_btn {
   display: none;
   position: fixed;
-  top: 20px;
+  top: 10px;
   right: 10px;
   z-index: 100;
   background: rgba(10, 14, 24, 0.9);
@@ -379,7 +381,7 @@
   }
 
   .content {
-    padding: 35px 0px;
+    padding: 30px 0px;
     margin-left: 0;
   }
 }

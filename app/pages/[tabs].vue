@@ -5,13 +5,13 @@
       <NuxtImg :src="tab.page_image || `/data/undefined_tab_image.png`" class="page-bg-img" alt="bg" sizes="sm:100vw md:100vw lg:100vw xl:100vw" quality="95" preload />
     </div>
 
-    <div class="sticky-controls">
-      <div class="page-title-block">
+          <div class="page-title-block">
         <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-1" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
         <h1 class="page-title">{{ tab.name }}</h1>
         <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-2" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
       </div>
 
+    <div class="sticky-controls">
       <div class="search-wrapper">
         <div class="search-input-container">
           <input v-model="search" type="text" placeholder="Поиск..." class="search-input">
@@ -22,20 +22,16 @@
 
     <div class="trade-list">
       <TransitionGroup name="list">
-        <div v-for="items in FilterArrayItems" :key="items.name" class="trade-card">
-          <div class="trade-item trade-left">
+        <div v-for="items in FilterArrayItems" :key="items" class="trade-card">
+          <div class="trade-item">
             <span class="item-name">{{ items.name }}</span>
           </div>
 
           <div class="trade-arrow">
-            <svg viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-svg">
-              <path d="M0 10H30M30 10L22 2M30 10L22 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <circle cx="10" cy="10" r="2" fill="currentColor" class="arrow-particle" />
-            </svg>
+            ==>
           </div>
 
-          <div class="trade-item trade-right">
+          <div class="trade-item text-right">
             <span class="price-value">{{ items.price }}</span>
           </div>
         </div>
@@ -100,16 +96,13 @@
 
 /* ЛИПКИЙ БЛОК */
 .sticky-controls {
-  position: -webkit-sticky;
-  /* Для Safari */
   position: sticky;
-  top: 20px;
+  top: 10px;
   z-index: 20;
 
-  /* Обязательно добавьте эти свойства: */
-  background: rgba(11, 18, 27, 0.151);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(9, 14, 20, 0.459);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 
   border-radius: 20px;
   padding: 20px 24px 24px;
@@ -133,7 +126,7 @@
 
 .page-title {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -229,6 +222,7 @@
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  gap: 20px;
 }
 
 /* Более сдержанный hover-эффект */
@@ -260,37 +254,26 @@
   z-index: 1;
 }
 
-.trade-left {
-  text-align: left;
-}
-
-.trade-right {
-  text-align: right;
-}
-
 .item-name {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--c-text);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.4;
 }
 
 .price-value {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: var(--c-text);
-  background: rgba(0, 0, 0, 0.2);
-  padding: 6px 14px;
-  border-radius: 8px;
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-right {
+  text-align: right;
 }
 
 /* Стрелка */
 .trade-arrow {
-  flex: 0 0 50px;
+  font-size: 1.3rem;
+  width: 40px;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
@@ -307,10 +290,6 @@
 .arrow-svg {
   width: 32px;
   height: 16px;
-}
-
-.arrow-particle {
-  animation: pulse 2s infinite ease-in-out;
 }
 
 @keyframes pulse {
@@ -400,15 +379,19 @@
   }
 
   .sticky-controls {
-    top: 10px;
+    top: 60px;
     padding: 16px;
     margin-bottom: 20px;
+    background: rgba(9, 14, 20, 0.979);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
   }
 }
 </style>
 
 <script setup>
 import { UseTabs } from '~/compansable/tabs';
+import Fuse from 'fuse.js';
 
 const route = useRoute()
 const { data: tabsInfo } = UseTabs()
@@ -419,15 +402,24 @@ const tab = computed(() => tabsInfo.value?.[tabRouter.value])
 const search = ref('')
 
 const FilterArrayItems = computed(() => {
-  const item = tab.value?.items
-  if (!item) return []
+  const items= tab.value?.items
+  if (!items) return []
 
   if (!search.value.trim()) {
-    return item
+    return items
   }
 
+  const fuse = new Fuse(items, {
+  keys: ['name'],
+  threshold: 0.3,
+  includeScore: true
+})
+
   const query = search.value.toLowerCase().trim()
-  return item.filter(item => item.name.toLowerCase().includes(query)) // includes лучше, чем startsWith для поиска
+  console.log(items.filter(item => item.name.toLowerCase().includes(query)))
+  const r = fuse.search(query)
+  const result = r.map(r => r.item)
+  return result
 })
 
 definePageMeta({
