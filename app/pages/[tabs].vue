@@ -7,7 +7,7 @@
 
           <div class="page-title-block">
         <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-1" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
-        <h1 class="page-title">{{ tab.name }}</h1>
+        <h1 class="page-title">{{ tab.name || `undefined tabs`}}</h1>
         <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-2" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
       </div>
 

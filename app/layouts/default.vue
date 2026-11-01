@@ -391,6 +391,7 @@
 import { UseTabs } from '~/compansable/tabs';
 const { data: tabsInfo } = UseTabs()
 const tabs = computed(() => Object.entries(tabsInfo.value || {}))
+console.log(tabs)
 const isOpen = ref(false)
 const activate_mm = () => { isOpen.value = !isOpen.value }
 </script>
