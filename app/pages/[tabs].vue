@@ -2,14 +2,17 @@
   <section v-if="tab" class="page-section">
 
     <div class="page-header-bg">
-      <NuxtImg :src="tab.page_image || `/data/undefined_tab_image.png`" class="page-bg-img" alt="bg" sizes="sm:100vw md:100vw lg:100vw xl:100vw" quality="95" preload />
+      <NuxtImg :src="tab.page_image || `/data/undefined_tab_image.png`" class="page-bg-img" alt="bg"
+        sizes="sm:100vw md:100vw lg:100vw xl:100vw" quality="95" preload />
     </div>
 
-          <div class="page-title-block">
-        <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-1" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
-        <h1 class="page-title">{{ tab.name || `undefined tabs`}}</h1>
-        <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-2" alt="slot" format="png" :modifiers="{ kernel: 'nearest' }" />
-      </div>
+    <div class="page-title-block">
+      <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-1" alt="slot" format="png"
+        :modifiers="{ kernel: 'nearest' }" />
+      <h1 class="page-title">{{ tab.name || `undefined tabs` }}</h1>
+      <NuxtImg :src="tab.slot_image || `/data/undefined_tab.png`" class="slot-icon-2" alt="slot" format="png"
+        :modifiers="{ kernel: 'nearest' }" />
+    </div>
 
     <div class="sticky-controls">
       <div class="search-wrapper">
@@ -23,8 +26,10 @@
     <div class="trade-list">
       <TransitionGroup name="list">
         <div v-for="items in FilterArrayItems" :key="items" class="trade-card">
-          <div class="trade-item">
-            <span class="item-name">{{ items.name }}</span>
+          <div class="trade-item text-left">
+            <span class="item-name">
+              <NuxtImg class="item-png" :src="parseItem(items.name)" />{{ items.name }}
+            </span>
           </div>
 
           <div class="trade-arrow">
@@ -32,7 +37,9 @@
           </div>
 
           <div class="trade-item text-right">
-            <span class="price-value">{{ items.price }}</span>
+            <span class="price-value">
+              <NuxtImg class="item-png" :src="parseItem(items.price)" />{{ items.price }}
+            </span>
           </div>
         </div>
       </TransitionGroup>
@@ -206,15 +213,16 @@
 
 /* Список карточек */
 .trade-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 12px;
+  width: 100%;
 }
 
 .trade-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   background: var(--c-card);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 14px;
@@ -249,24 +257,34 @@
 }
 
 .trade-item {
-  flex: 1;
   min-width: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .item-name {
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--c-text);
+  width: 100%;
 }
 
 .price-value {
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--c-text);
+  width: 100%;
+}
+
+.text-left {
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .text-right {
+  justify-content: flex-end;
   text-align: right;
 }
 
@@ -326,6 +344,12 @@
   background: rgba(255, 255, 255, 0.02);
   border-radius: 14px;
   border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.item-png {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
 }
 
 /* Адаптив для планшетов */
@@ -392,6 +416,7 @@
 <script setup>
 import { UseTabs } from '~/compansable/tabs';
 import Fuse from 'fuse.js';
+import { parseItem } from '~/compansable/parse';
 
 const route = useRoute()
 const { data: tabsInfo } = UseTabs()
@@ -402,7 +427,7 @@ const tab = computed(() => tabsInfo.value?.[tabRouter.value])
 const search = ref('')
 
 const FilterArrayItems = computed(() => {
-  const items= tab.value?.items
+  const items = tab.value?.items
   if (!items) return []
 
   if (!search.value.trim()) {
@@ -410,10 +435,10 @@ const FilterArrayItems = computed(() => {
   }
 
   const fuse = new Fuse(items, {
-  keys: ['name'],
-  threshold: 0.3,
-  includeScore: true
-})
+    keys: ['name'],
+    threshold: 0.3,
+    includeScore: true
+  })
 
   const query = search.value.toLowerCase().trim()
   console.log(items.filter(item => item.name.toLowerCase().includes(query)))
@@ -424,6 +449,6 @@ const FilterArrayItems = computed(() => {
 
 definePageMeta({
   keepalive: true,
-  pageKey: 'tabs-shared-key' 
+  pageKey: 'tabs-shared-key'
 })
 </script>

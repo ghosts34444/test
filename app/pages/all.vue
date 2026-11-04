@@ -1,94 +1,95 @@
 <template>
-    <section v-if="tab" class="page-section">
-        <div class="sticky-controls">
-            <div class="search-wrapper">
-                <div class="search-input-container">
-                    <input v-model="search" type="text" placeholder="Поиск..." class="search-input">
-                    <button v-if="search" @click="search = ''" class="search-clear"
-                        aria-label="Очистить поиск">X</button>
-                </div>
+  <section v-if="tab" class="page-section">
+    <div class="sticky-controls">
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <input v-model="search" type="text" placeholder="Поиск..." class="search-input">
+          <button v-if="search" @click="search = ''" class="search-clear" aria-label="Очистить поиск">X</button>
+        </div>
+      </div>
+    </div>
+    <div v-if="FilterArrayItems.length != 0">
+      <main v-for="(td, tk) in FilterArrayItems" :key="tk">
+        <div class="page-title-block">
+          <NuxtImg :src="td.slot_image || `/data/undefined_tab.png`" class="slot-icon-1" alt="slot" format="png"
+            :modifiers="{ kernel: 'nearest' }" />
+          <h1 class="page-title">{{ td.name || `undefined tab` }}</h1>
+          <NuxtImg :src="td.slot_image || `/data/undefined_tab.png`" class="slot-icon-2" alt="slot" format="png"
+            :modifiers="{ kernel: 'nearest' }" />
+        </div>
+        <div class="trade-list">
+          <TransitionGroup name="list">
+            <div v-for="items in td.items" :key="items" class="trade-card">
+              <div class="trade-item">
+                <span class="item-name">
+                  <NuxtImg class="item-png" :src="parseItem(items.name)" />{{ items.name }}
+                </span>
+              </div>
+
+              <div class="trade-arrow">
+                ==>
+              </div>
+
+              <div class="trade-item text-right">
+                <span class="price-value">
+                  <NuxtImg class="item-png" :src="parseItem(items.price)" />{{ items.price }}
+                </span>
+              </div>
             </div>
+          </TransitionGroup>
         </div>
-        <div v-if="FilterArrayItems.length != 0" class="empty-state">
-            <main v-for="(td, tk) in FilterArrayItems" :key="tk">
-                <div class="page-title-block">
-                    <NuxtImg :src="td.slot_image || `/data/undefined_tab.png`" class="slot-icon-1" alt="slot"
-                        format="png" :modifiers="{ kernel: 'nearest' }" />
-                    <h1 class="page-title">{{ td.name || `undefined tab`}}</h1>
-                    <NuxtImg :src="td.slot_image || `/data/undefined_tab.png`" class="slot-icon-2" alt="slot"
-                        format="png" :modifiers="{ kernel: 'nearest' }" />
-                </div>
-                <div class="trade-list">
-                    <TransitionGroup name="list">
-                        <div v-for="items in td.items" :key="items" class="trade-card">
-                            <div class="trade-item">
-                                <span class="item-name">{{ items.name }}</span>
-                            </div>
-
-                            <div class="trade-arrow">
-                                ==>
-                            </div>
-
-                            <div class="trade-item text-right">
-                                <span class="price-value">{{ items.price }}</span>
-                            </div>
-                        </div>
-                    </TransitionGroup>
-                </div>
-            </main>
-        </div>
-        <div v-else="FilterArrayItems.length === 0">
-            <p>Данные не найдены в этом секторе...</p>
-        </div>
-    </section>
+      </main>
+    </div>
+    <div v-else class="empty-state">
+      <p>Данные не найдены в этом секторе...</p>
+    </div>
+  </section>
 </template>
 
 <script setup>
 import { UseTabs } from '~/compansable/tabs';
 import Fuse from 'fuse.js';
+import { parseItem } from '~/compansable/parse';
 const { data: tabsInfo } = UseTabs()
 
 const tab = tabsInfo.value
-console.log(tab)
-
 const search = ref('')
 
 const FilterArrayItems = computed(() => {
-    const item = tab
-    if (!item) return []
+  const item = tab
+  if (!item) return []
 
-    if (!search.value.trim()) {
-        return item
-    }
+  if (!search.value.trim()) {
+    return item
+  }
 
-    const query = search.value.trim()
-    const result = {}
+  const query = search.value.trim()
+  const result = {}
 
-    Object.entries(item).forEach(([tk, td]) => {
-        if(!td.items || !td.items.length) return
+  Object.entries(item).forEach(([tk, td]) => {
+    if (!td.items || !td.items.length) return
 
-        const f = new Fuse(td.items, {
-            keys: ["name"],
-            threshold: 0.3
-        })
-
-        const sr = f.search(query)
-        console.log(sr)
-        if(sr.length != 0 ) {
-            result[tk] = {
-                ...td,
-                items: sr.map(s => s.item)
-            }
-            console.log(result)
-        }
+    const f = new Fuse(td.items, {
+      keys: ["name"],
+      threshold: 0.3
     })
-    
-    return result
+
+    const sr = f.search(query)
+
+    if (sr.length != 0) {
+      result[tk] = {
+        ...td,
+        items: sr.map(s => s.item)
+      }
+    }
+  })
+
+  return result
 })
 
 definePageMeta({
-    keepalive: true,
-    pageKey: 'tabs-shared-key'
+  keepalive: true,
+  pageKey: 'tabs-shared-key'
 })
 </script>
 
@@ -374,6 +375,13 @@ definePageMeta({
   background: rgba(255, 255, 255, 0.02);
   border-radius: 14px;
   border: 1px dashed rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.item-png {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
 }
 
 /* Адаптив для планшетов */
