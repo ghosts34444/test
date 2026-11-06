@@ -4,11 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/image'],
   image: {
-    quality: 92,
+    provider: 'vercel',
+    quality: 100,
     format: ['webp'],
     ipx: {
       modifiers: {
-        quality: '92'
+        quality: '100',
+        // @ts-ignore
+        lossless: true 
       }
     }
   }

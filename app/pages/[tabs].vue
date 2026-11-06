@@ -26,8 +26,8 @@
     <div class="trade-list">
       <TransitionGroup name="list">
         <div v-for="items in FilterArrayItems" :key="items" class="trade-card">
-          <div class="trade-item text-left">
-            <span class="item-name">
+          <div class="trade-item">
+            <span class="item text-left">
               <NuxtImg class="item-png" :src="parseItem(items.name)" />{{ items.name }}
             </span>
           </div>
@@ -36,9 +36,9 @@
             ==>
           </div>
 
-          <div class="trade-item text-right">
-            <span class="price-value">
-              <NuxtImg class="item-png" :src="parseItem(items.price)" />{{ items.price }}
+          <div class="trade-item">
+            <span class="item text-right">
+              <ItemImages :item-name="items.price" />
             </span>
           </div>
         </div>
@@ -68,7 +68,6 @@
   color: var(--c-text);
 }
 
-/* Верхний свет из данных JSON */
 .page-section::before {
   content: '';
   position: absolute;
@@ -213,16 +212,15 @@
 
 /* Список карточек */
 .trade-list {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  width: 100%;
 }
 
 .trade-card {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   background: var(--c-card);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 14px;
@@ -230,6 +228,7 @@
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  height: max-content;
   gap: 20px;
 }
 
@@ -257,35 +256,30 @@
 }
 
 .trade-item {
+  flex: 1;
   min-width: 0;
   z-index: 1;
-  display: flex;
-  align-items: center;
+}
+
+.item {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--c-text);
   gap: 10px;
 }
 
-.item-name {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--c-text);
-  width: 100%;
-}
-
-.price-value {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--c-text);
-  width: 100%;
+.text-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
 }
 
 .text-left {
+  display: flex;
   justify-content: flex-start;
-  text-align: left;
-}
-
-.text-right {
-  justify-content: flex-end;
-  text-align: right;
+  align-items: center;
+  height: 100%;
 }
 
 /* Стрелка */
@@ -344,11 +338,12 @@
   background: rgba(255, 255, 255, 0.02);
   border-radius: 14px;
   border: 1px dashed rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 .item-png {
-  width: 32px;
-  height: 32px;
+  width: 64px;
+  height: 64px;
   image-rendering: pixelated;
 }
 
@@ -417,6 +412,7 @@
 import { UseTabs } from '~/compansable/tabs';
 import Fuse from 'fuse.js';
 import { parseItem } from '~/compansable/parse';
+import ItemImages from '~/compansable/ItemImages.vue';
 
 const route = useRoute()
 const { data: tabsInfo } = UseTabs()
